@@ -19,3 +19,10 @@ check_project () {
     echo 0
     return 0
 }
+
+replace_hyphen () {
+
+    echo `echo $1 | sed s/-/_/g`
+
+}
+

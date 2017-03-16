@@ -39,12 +39,13 @@ git commit -m "License: MIT" > $ECHO_OFF
 
 
 # 7. create directories
-mkdir $project
+replaced_prj=`replace_hyphen $project`
+mkdir $replaced_prj
 mkdir tests
 
 # 8. create python script files
-cat $TEMPLATEDIR/python.py > $project/__init__.py
-cat $TEMPLATEDIR/python.py > $project/__main__.py
+cat $TEMPLATEDIR/python.py > $replaced_prj/__init__.py
+cat $TEMPLATEDIR/python.py > $replaced_prj/__main__.py
 
 # 9. create other files with templates
 
