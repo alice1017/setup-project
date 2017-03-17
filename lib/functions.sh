@@ -1,6 +1,11 @@
 #!/bin/sh
 # coding: utf-8
 
+echo_off () {
+    cmd=$1
+    eval $cmd > /dev/null 2>&1
+}
+
 check_project () {
     project=$1
 

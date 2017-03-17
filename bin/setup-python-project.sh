@@ -25,17 +25,17 @@ mkdir $project
 cd $project
 
 # 4. git init
-git init > $ECHO_OFF
+echo_off 'git init'
 
 # 5. generate gitignore
 curl -s "https://www.gitignore.io/api/vim,python" > .gitignore
 git add .gitignore
-git commit -m "First commit: generate gitignore by gitignore.io" > $ECHO_OFF
+echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
 
 # 6. generate license
-licgen mit "Hayato Tominaga" > $ECHO_OFF
+echo_off 'licgen mit "Hayato Tominaga"'
 git add LICENSE
-git commit -m "License: MIT" > $ECHO_OFF
+echo_off 'git commit -m "License: MIT"'
 
 
 # 7. create directories
