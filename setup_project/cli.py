@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from argparse import ArgumentParser, SUPPRESS
+from argparse import ArgumentParser
 
 
 parser = ArgumentParser(
@@ -18,20 +18,6 @@ parser.add_argument(
     "project",
     action="store",
     help="The project name")
-
-parser.add_argument(
-    "-f", "--formula-path",
-    action="store",
-    dest="formula_path",
-    metavar="PATH",
-    help="You can set your original formula. please write formula path.")
-
-parser.add_argument(
-    "-d", "--under-develop",
-    action="store_true",
-    dest="develop",
-    default=True,
-    help=SUPPRESS)
 
 parser.add_argument(
     "-l", "--list",
