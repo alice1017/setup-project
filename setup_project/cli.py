@@ -24,3 +24,9 @@ parser.add_argument(
     action="store_true",
     dest="formula_list",
     help="Display project formula list.")
+
+parser.add_argument(
+    "--stack-trace",
+    dest="stacktrace",
+    action="store_true",
+    help="Display the stack trace when error occured.")

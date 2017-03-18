@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import sys
+import traceback
 
 from .cli import parser
 from .core import execute_script
@@ -27,7 +28,7 @@ def program(args):
     return 0
 
 
-def build(argv):
+def main(argv=sys.argv):
 
     # under develop:
     # python -m setup-project => argv 2
@@ -38,21 +39,22 @@ def build(argv):
 
     args = parser.parse_args(argv)
 
-    exit_code = program(args)
-    return exit_code
-
-
-def main(argv=sys.argv):
-
     try:
-        sys.exit(build(argv))
+        exit_code = program(args)
+        sys.exit(exit_code)
 
     except Exception as e:
         e_type = str(type(e)).split(".")[-1][:-2]
-        sys.stderr.write(
-            "{0}: {1}\n".format(e_type, e.message))
-        sys.exit(1)
+        stack_trace = traceback.format_exc()
 
+        if args.stacktrace:
+            print "{:=^30}".format(" STACK TRACE ")
+            print stack_trace.strip()
+
+        else:
+            sys.stderr.write(
+                "{0}: {1}\n".format(e_type, e.message))
+            sys.exit(1)
 
 if __name__ == "__main__":
 
