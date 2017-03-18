@@ -14,6 +14,8 @@ class ScriptManager(object):
 
     def __init__(self, script_dir=DEFAULT_SCRIPT_DIR):
 
+        self.__check_exist_dir(script_dir)
+
         self.script_dir = script_dir
         self.script_files = os.listdir(self.script_dir)
         self.data_cache = {}
@@ -40,3 +42,11 @@ class ScriptManager(object):
     def __get_formula_from_script(self, script_file):
 
         return script_file.split("-")[1]
+
+    def __check_exist_dir(self, directory):
+
+        if os.path.isdir(directory):
+            return True
+
+        else:
+            raise IOError("Directory does not found: '{0}'".format(directory))
