@@ -17,7 +17,7 @@ setup(
     packages=["setup_project"],
     entry_points={
         "console_scripts": [
-            "setup-project=setup_project.__main__.main"
+            "setup-project=setup_project.__main__:main"
         ]
     },
     classifiers=[
