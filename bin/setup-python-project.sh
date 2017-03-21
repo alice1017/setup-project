@@ -39,14 +39,16 @@ cd $project
 echo_off 'git init'
 
 # 5. generate gitignore
-curl -s "https://www.gitignore.io/api/vim,python" > .gitignore
+api_url="https://www.gitignore.io/api/${EDITOR},python"
+curl -s $api_url > .gitignore
 git add .gitignore
 echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
 
+
 # 6. generate license
-echo_off 'licgen mit "Hayato Tominaga"'
+echo_off 'licgen ${LICENSE} '${NAME}''
 git add LICENSE
-echo_off 'git commit -m "License: MIT"'
+echo_off 'git commit -m "License: ${LICENSE}"'
 
 
 # 7. create directories
