@@ -1,0 +1,14 @@
+# setup-project setting file
+
+# NAME: Your name, use by LICENSE name.
+NAME=""
+
+# EDITOR: Your editor (vim or emacs), use when generate gitignore.
+#         If you use another editor, please look www.gitignore.io
+EDITOR=""
+
+# LICENSE: The kind of license.
+LICENSE="MIT"
+
+# GIT: Whether using git (true or false).
+GIT=true
