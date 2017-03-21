@@ -5,6 +5,17 @@
 . $HOME/.setup-project/lib/environs.sh
 . $LIBDIR/functions.sh
 
+if [ ! -f $ETCDIR/settings.conf ]; then
+    echo "error: There is not 'settings.conf' file."
+    echo "Please exec this command, and edit settings.conf."
+    echo "'cp ~/.setup-project/etc/settings.conf.sample ~/.setup-project/etc/settings.conf'"
+    exit $ERROR
+
+else
+    . $ETCDIR/settings.conf
+
+fi
+
 project=$1
 
 # 1. check argument
