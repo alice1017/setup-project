@@ -36,19 +36,24 @@ mkdir $project
 cd $project
 
 # 4. git init
-echo_off 'git init'
+if [ $GIT = true ]; then
+    echo_off 'git init'
 
-# 5. generate gitignore
-api_url="https://www.gitignore.io/api/${EDITOR},python"
-curl -s $api_url > .gitignore
-git add .gitignore
-echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
+    # 5. generate gitignore
+    api_url="https://www.gitignore.io/api/${EDITOR},python"
+    curl -s $api_url > .gitignore
+    git add .gitignore
+    echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
 
+fi
 
 # 6. generate license
 echo_off 'licgen ${LICENSE} "${NAME}"'
-git add LICENSE
-echo_off 'git commit -m "License: ${LICENSE}"'
+
+if [ $GIT = true ]; then
+    git add LICENSE
+    echo_off 'git commit -m "License: ${LICENSE}"'
+fi
 
 
 # 7. create directories
