@@ -46,7 +46,7 @@ echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
 
 
 # 6. generate license
-echo_off 'licgen ${LICENSE} '${NAME}''
+echo_off 'licgen ${LICENSE} "${NAME}"'
 git add LICENSE
 echo_off 'git commit -m "License: ${LICENSE}"'
 
