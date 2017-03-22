@@ -5,6 +5,17 @@
 . $HOME/.setup-project/lib/environs.sh
 . $LIBDIR/functions.sh
 
+if [ ! -f $ETCDIR/settings.conf ]; then
+    echo "error: There is not 'settings.conf' file."
+    echo "Please exec this command, and edit settings.conf."
+    echo "'cp ~/.setup-project/etc/settings.conf.sample ~/.setup-project/etc/settings.conf'"
+    exit $ERROR
+
+else
+    . $ETCDIR/settings.conf
+
+fi
+
 project=$1
 
 # 1. check argument
@@ -25,17 +36,24 @@ mkdir $project
 cd $project
 
 # 4. git init
-echo_off 'git init'
+if [ $GIT = true ]; then
+    echo_off 'git init'
 
-# 5. generate gitignore
-curl -s "https://www.gitignore.io/api/vim,python" > .gitignore
-git add .gitignore
-echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
+    # 5. generate gitignore
+    api_url="https://www.gitignore.io/api/${EDITOR},python"
+    curl -s $api_url > .gitignore
+    git add .gitignore
+    echo_off 'git commit -m "First commit: generate gitignore by gitignore.io"'
+
+fi
 
 # 6. generate license
-echo_off 'licgen mit "Hayato Tominaga"'
-git add LICENSE
-echo_off 'git commit -m "License: MIT"'
+echo_off 'licgen ${LICENSE} "${NAME}"'
+
+if [ $GIT = true ]; then
+    git add LICENSE
+    echo_off 'git commit -m "License: ${LICENSE}"'
+fi
 
 
 # 7. create directories

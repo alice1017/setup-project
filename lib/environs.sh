@@ -4,6 +4,7 @@
 # Directory
 ROOTDIR=$HOME/.setup-project
 LIBDIR=$ROOTDIR/lib
+ETCDIR=$ROOTDIR/etc
 BINDIR=$ROOTDIR/bin
 TEMPLATEDIR=$ROOTDIR/templates
 
