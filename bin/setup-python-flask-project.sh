@@ -55,26 +55,22 @@ if [ $GIT = true ]; then
     echo_off 'git commit -m "License: ${LICENSE}"'
 fi
 
+# 7. create app directory
+mkdir app
 
-# 7. create directories
-replaced_prj=`replace_hyphen $project`
-mkdir $replaced_prj
+# 8. create files & dirs in application
+mkdir app/templates
+mkdir app/static
+mkdir tests
 
-# 8. create files & dirs in project module
-
-mkdir $replaced_prj/module
-mkdir $replaced_prj/templates
-mkdir $replaced_prj/templates/module
-mkdir $replaced_prj/static
-
-cat $TEMPLATEDIR/python.py > $replaced_prj/__init__.py
-cat $TEMPLATEDIR/python.py > $replaced_prj/module/__init__.py
-cat $TEMPLATEDIR/python.py > $replaced_prj/module/controllers.py
-cat $TEMPLATEDIR/python.py > $replaced_prj/module/models.py
+cat $TEMPLATEDIR/app_init.py > app/__init__.py
+cat $TEMPLATEDIR/python.py > app/controllers.py
+cat $TEMPLATEDIR/python.py > app/models.py
+cat $TEMPLATEDIR/views.py > app/views.py
 
 # 9. create python scripts
 
-cat $TEMPLATEDIR/python.py > runserver.py
-cat $TEMPLATEDIR/python.py > config.py
+cat $TEMPLATEDIR/runserver.py > runserver.py
+cat $TEMPLATEDIR/testrunner.py > testrunner.py
 
 exit $EXIT
