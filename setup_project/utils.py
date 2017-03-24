@@ -41,7 +41,13 @@ class ScriptManager(object):
     # PRIVATE
     def __get_formula_from_script(self, script_file):
 
-        return script_file.split("-")[1]
+        script_name_items = script_file.split("-")
+
+        if len(script_name_items) == 3:
+            return script_name_items[1]
+
+        elif len(script_name_items) > 3:
+            return "-".join(script_name_items[1:-1])
 
     def __check_exist_dir(self, directory):
 
