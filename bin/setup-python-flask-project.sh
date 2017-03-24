@@ -63,14 +63,14 @@ mkdir app/templates
 mkdir app/static
 mkdir tests
 
-cat $TEMPLATEDIR/app_init.py > app/__init__.py
-cat $TEMPLATEDIR/python.py > app/controllers.py
-cat $TEMPLATEDIR/python.py > app/models.py
-cat $TEMPLATEDIR/views.py > app/views.py
+cat $TEMPLATEDIR/python-flask/app_init.py > app/__init__.py
+cat $TEMPLATEDIR/python/python.py > app/controllers.py
+cat $TEMPLATEDIR/python/python.py > app/models.py
+cat $TEMPLATEDIR/python-flask/views.py > app/views.py
 
 # 9. create python scripts
 
-cat $TEMPLATEDIR/runserver.py > runserver.py
-cat $TEMPLATEDIR/testrunner.py > testrunner.py
+cat $TEMPLATEDIR/python-flask/runserver.py > runserver.py
+cat $TEMPLATEDIR/python/testrunner.py > testrunner.py
 
 exit $EXIT

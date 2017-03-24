@@ -62,8 +62,8 @@ mkdir $replaced_prj
 mkdir tests
 
 # 8. create python script files
-cat $TEMPLATEDIR/python.py > $replaced_prj/__init__.py
-cat $TEMPLATEDIR/python.py > $replaced_prj/__main__.py
+cat $TEMPLATEDIR/python/python.py > $replaced_prj/__init__.py
+cat $TEMPLATEDIR/python/python.py > $replaced_prj/__main__.py
 
 # 9. create other files with templates
 
@@ -71,9 +71,9 @@ cat $TEMPLATEDIR/python.py > $replaced_prj/__main__.py
 touch README.md
 
 # 9.2. testrunner.py
-cat $TEMPLATEDIR/testrunner.py > testrunner.py
+cat $TEMPLATEDIR/python/testrunner.py > testrunner.py
 
 # 9.3. setup.py
-cat $TEMPLATEDIR/setup.py > setup.py
+cat $TEMPLATEDIR/python/setup.py > setup.py
 
 exit $EXIT
