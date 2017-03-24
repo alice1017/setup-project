@@ -64,7 +64,7 @@ mkdir $replaced_prj
 
 mkdir $replaced_prj/module
 mkdir $replaced_prj/templates
-mkfit $replaced_prj/templates/module
+mkdir $replaced_prj/templates/module
 mkdir $replaced_prj/static
 
 cat $TEMPLATEDIR/python.py > $replaced_prj/__init__.py
@@ -74,7 +74,7 @@ cat $TEMPLATEDIR/python.py > $replaced_prj/module/models.py
 
 # 9. create python scripts
 
-cat $TEMPLATEDIR/python.py > $replaced_prj/runserver.py
-cat $TEMPLATEDIR/python.py > $replaced_prj/config.py
+cat $TEMPLATEDIR/python.py > runserver.py
+cat $TEMPLATEDIR/python.py > config.py
 
 exit $EXIT
